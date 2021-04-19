@@ -1,5 +1,7 @@
 # POKEDEX
-## Este é um projeto consumindo a api **https://pokeapi.co/**
+## Este é um projeto consumindo a api **https://pokeapi.co/** para criar uma pokedex
+
+https://www.einerd.com.br/wp-content/uploads/2020/01/ash-pokemon-e1580132488300.jpeg
 
 ## O projeto tem as seguintes **três páginas:**
 ## 1. **Home:** o usuário deve receber uma lista de pokemons vinda da API. Ele pode armazenar Pokemons em sua Pokedex clicando em cada um.
