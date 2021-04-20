@@ -11,7 +11,7 @@ export const PokedexPage = () => {
         <CardPoke>
             <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
             <p></p>
-            <button>Pegar</button>
+            <button>Remover</button>
             <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
         </CardPoke>
         <button onClick={history.goBack}>voltar</button>
