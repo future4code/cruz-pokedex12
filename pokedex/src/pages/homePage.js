@@ -13,7 +13,6 @@ export const HomePage = () => {
         try {
             const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
             setPokemonsApi(response.data.results);
-            console.log(pokemonsApi);
         } catch (erro) {
             console.log("Erro", erro);
         }
@@ -25,6 +24,7 @@ export const HomePage = () => {
 
     const listaPokemonsNaTela = pokemonsApi && pokemonsApi.length > 0 && pokemonsApi.map((pokemons)=>{
         return <CardPokemon 
+                    key={pokemons.name}
                     name={pokemons.name}
                 />
     })
