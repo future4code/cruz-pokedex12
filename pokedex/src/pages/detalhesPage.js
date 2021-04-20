@@ -1,11 +1,13 @@
 import React from "react"
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components'
+import { HeaderDetalhes } from "../componetes/headerDetalhes";
 
 export const DetalhesPage = () => {
 const history = useHistory();
     return(
     <div>
+        <HeaderDetalhes/>
         <p>Detalhes</p>
         <Detalhes>
             <Img>
