@@ -24,7 +24,7 @@ export default function CardPokemon(props) {
     useEffect(() => {
         pegaInformacoesPokemon();
     }, [])
-    
+
     return (
         <CardPoke>
             <Img src={fotoPokemon} />
@@ -32,7 +32,7 @@ export default function CardPokemon(props) {
             <p>Tipo: {name}</p>
             <Buttons>
                 <button>Pegar</button>
-                <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
+                <button onClick={() => goToDetalhesPage(history,name)}>Detalhes</button>
             </Buttons>
         </CardPoke>
     )
