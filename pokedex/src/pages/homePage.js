@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import axios from "axios";
 import {HeaderHome} from '../componetes/headerHome'
 import CardPokemon from "../componetes/CardPokemon";
-
+import {UrlBase} from '../Constants/Url'
 
 export const HomePage = () => {
     
@@ -11,7 +11,7 @@ export const HomePage = () => {
 
     const listaPokemons = async () => {
         try {
-            const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
+            const response = await axios.get(`${UrlBase}`);
             setPokemonsApi(response.data.results);
         } catch (erro) {
             console.log("Erro", erro);
