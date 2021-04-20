@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import styled from 'styled-components'
 import axios from "axios";
-import { Header } from "../componetes/Header";
+import {HeaderHome} from '../componetes/headerHome'
 import CardPokemon from "../componetes/CardPokemon";
 
 
@@ -31,7 +31,7 @@ export const HomePage = () => {
 
     return (
         <Principal>
-            <Header />
+            <HeaderHome />
             <PrincipalCard>
                 <CardsPokemon>
                    {listaPokemonsNaTela}
