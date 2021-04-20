@@ -2,6 +2,9 @@
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 // import axios from "axios";
+// import styled from 'styled-components'
+// import { HeaderDetalhes } from "../componetes/headerDetalhes";
+
 
 const pokemon = {
     id: 1,
@@ -109,6 +112,7 @@ export const DetalhesPage = (props) => {
 
     return (
     <div>
+        <HeaderDetalhes/>
         <p>Detalhes</p>
         <Detalhes>
         <Img>

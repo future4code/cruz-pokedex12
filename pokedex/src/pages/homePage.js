@@ -1,32 +1,64 @@
-import React from "react"
-import {goToDetalhesPage} from "../routes/coordinator"
-import {goToPokedexPage} from "../routes/coordinator"
-import { useHistory } from "react-router";
+import React, { useEffect, useState } from "react"
 import styled from 'styled-components'
-
+import axios from "axios";
+import {HeaderHome} from '../componetes/headerHome'
+import CardPokemon from "../componetes/CardPokemon";
+import {UrlBase} from '../Constants/Url'
 
 export const HomePage = () => {
-    const history = useHistory();
-    return(
-    <div>
-        <p>Home</p>
-        <CardPoke>
-            <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
-            <p></p>
-            <button>Pegar</button>
-            <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
-        </CardPoke>
-        <button onClick={() => goToPokedexPage(history)}>Pokedex</button>
-    </div>
-    )
-} 
+    
+    const [pokemonsApi, setPokemonsApi] = useState([])
 
-const CardPoke = styled.div`
-border: solid black;
-height: 250px;
-width: 220px;
+    const listaPokemons = async () => {
+        try {
+            const response = await axios.get(`${UrlBase}`);
+            setPokemonsApi(response.data.results);
+        } catch (erro) {
+            console.log("Erro", erro);
+        }
+    }
+
+    useEffect(() => {
+        listaPokemons();
+    }, [])
+
+    const listaPokemonsNaTela = pokemonsApi && pokemonsApi.length > 0 && pokemonsApi.map((pokemons)=>{
+        return <CardPokemon 
+                    key={pokemons.name}
+                    name={pokemons.name}
+                />
+    })
+
+    return (
+        <Principal>
+            <HeaderHome />
+            <PrincipalCard>
+                <CardsPokemon>
+                   {listaPokemonsNaTela}
+                </CardsPokemon>
+            </PrincipalCard>
+        </Principal>
+    )
+}
+const Principal = styled.div`
+    display:flex;
+    flex-direction:column;
+    height:100vh;
 `
-const Img = styled.img`
-height: 200px;
-width: auto;
+
+const PrincipalCard = styled.div`
+    
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    margin:20px;
+`
+
+const CardsPokemon = styled.div`
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-gap:10px;
+    width:100%;
+    justify-content:center;
 `
