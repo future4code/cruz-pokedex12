@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 // import axios from "axios";
 // import styled from 'styled-components'
-// import { HeaderDetalhes } from "../componetes/headerDetalhes";
+import { HeaderDetalhes } from "../componetes/headerDetalhes";
 
 
 const pokemon = {
