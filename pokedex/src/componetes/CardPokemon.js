@@ -28,7 +28,7 @@ export default function CardPokemon(props) {
     return (
         <CardPoke>
             <Img src={fotoPokemon} />
-            <p>{name}</p>
+            <h1>{name}</h1>
             <Buttons>
                 <button>Pegar</button>
                 <button onClick={() => goToDetalhesPage(history,name)}>Detalhes</button>
