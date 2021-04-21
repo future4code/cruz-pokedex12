@@ -8,9 +8,9 @@
 ### 3. **Detalhe do Pokemon:** Deve ser possível ir para uma página de detalhes do Pokemon ao clicar no mesmo, estando tanto na Home quanto na Pokedex.
 
 ## Nome dos integrantes: 
-### - Luciana Monteiro Mendonça
-### - Frank de Castro Filho
-### - Gabriel Mina da Silva
+### :construction_worker: Luciana Monteiro Mendonça
+### :construction_worker: Frank de Castro Filho
+### :construction_worker: Gabriel Mina da Silva
 
 ## Link do Surge: www.link.com.br
 
