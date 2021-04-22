@@ -11,7 +11,7 @@ export default function CardPokemon(props) {
     const {states, setters, requests} = useContext(GlobalStateContext)
     const history = useHistory();
     const [fotoPokemon, setFotoPokemon] = useState([])
-    const { name , pokemon} = props;
+    const { name, pokemon } = props;
 
     const pegaInformacoesPokemon = async () => {
         try {
@@ -27,11 +27,24 @@ export default function CardPokemon(props) {
         let novoPokemon = [...states.pokedex];
         if (index !== -1) {
             novoPokemon.push(poke)
-        } 
+        }
         setters.setPokedex(novoPokemon);
         alert(`${poke.name} foi adicionado ao sua pokedex!`);
     }
- 
+
+
+    // const addItemToCart = (newItem) => {
+    //     const index = states.cart.findIndex((i) => i.id === newItem.id);
+    //     let newCart = [...states.cart];
+    //     if (index === -1) {
+    //       newCart.push({ ...newItem, amount: 1 });
+    //     } else {
+    //       newCart[index].amount += 1;
+    //     }
+    //     setters.setCart(newCart);
+    //     alert(${newItem.name} foi adicionado ao seu carrinho!);
+    //   };
+    
 
     useEffect(() => {
         pegaInformacoesPokemon();
@@ -69,15 +82,4 @@ const Buttons = styled.div`
 const Img = styled.img`
     height: 200px;
     width: auto;
-` 
-// const addItemToCart = (newItem) => {
-//     const index = states.cart.findIndex((i) => i.id === newItem.id);
-//     let newCart = [...states.cart];
-//     if (index === -1) {
-//       newCart.push({ ...newItem, amount: 1 });
-//     } else {
-//       newCart[index].amount += 1;
-//     }
-//     setters.setCart(newCart);
-//     alert(${newItem.name} foi adicionado ao seu carrinho!);
-//   };
+`
