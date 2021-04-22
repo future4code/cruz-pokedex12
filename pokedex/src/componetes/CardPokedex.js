@@ -13,37 +13,11 @@ export default function CardPokemon(props) {
     const [fotoPokemon, setFotoPokemon] = useState([])
     const { name } = props;
 
-    const pegaInformacoesPokemon = async () => {
-        try {
-            const response = await axios.get(`${UrlBase}/${name}`)
-            setFotoPokemon(response.data.sprites.versions['generation-v']['black-white'].animated.front_default)
-        } catch (erro) {
-            console.log("Erro", erro);
-        }
-    }
+    const deletarPokemon = (nome) => {
 
-    const pegarPokedex = (poke) => {
-        const index = states.pokemonsApi.findIndex((i) => i.id === poke.name);
-        let novoPokemon = [...states.pokedex];
-        if (index === -1) {
-            novoPokemon.push({...name})
-        } 
-        setters.setPokedex(novoPokemon);
-        alert(`${name.name} foi adicionado ao sua pokedex!`);
-    }
+        
 
-    // const addItemToCart = (newItem) => {
-    //     const index = states.cart.findIndex((i) => i.id === newItem.id);
-    //     let newCart = [...states.cart];
-    //     if (index === -1) {
-    //       newCart.push({ ...newItem, amount: 1 });
-    //     } else {
-    //       newCart[index].amount += 1;
-    //     }
-    //     setters.setCart(newCart);
-    //     alert(${newItem.name} foi adicionado ao seu carrinho!);
-    //   };
-    
+    }
 
     useEffect(() => {
         pegaInformacoesPokemon();
@@ -54,7 +28,7 @@ export default function CardPokemon(props) {
             <h1>{name}</h1>
             <Img src={fotoPokemon} />
             <Buttons>
-                <button onClick={() =>pegarPokedex(name)}>Pegar</button>
+                <button>deletar</button>
                 <button onClick={() => goToDetalhesPage(history,name)}>Detalhes</button>
             </Buttons>
         </CardPoke>
