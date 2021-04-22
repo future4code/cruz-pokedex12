@@ -107,19 +107,24 @@ const pokemon = {
     ],
 };
 
+
+
+//--------------------------------------MOCK---------------------------------------
 export const DetalhesPage = (props) => {
     const history = useHistory();
 
     return (
     <div>
         <HeaderDetalhes/>
-        <p>Detalhes</p>
         <Detalhes>
-        <Img>
-            <ImgFrontal src={pokemon.sprites.front_default} />
-            <ImgCostas src={pokemon.sprites.back_default} />
-        </Img>
+
+            <DivImg> 
+                <ImgFrontal src={pokemon.sprites.front_default} />
+                <ImgCostas src={pokemon.sprites.back_default} />
+            </DivImg>
+
         <Status>
+          <h1>Poderes</h1>
             {pokemon.stats.map((stat) => {
                 return(
                     <p>{`${stat.stat.name}: ${stat.base_stat}`}</p>
@@ -127,61 +132,128 @@ export const DetalhesPage = (props) => {
             })}
         </Status>
 
+        <PrincipaisAtaques>
         <Tipo>
             {pokemon.types.map((type) => {
                 return(
-                    <p>{`${type.type.name}: tipo ${type.slot}`}</p>
+                    <p>{`${type.type.name}`}</p>
                 )
             })}
         </Tipo>
 
         <Movimentos>
+          <h1>Principais ataques</h1>
             {pokemon.moves.map((move) => {
                 return(
-                    <p>{`${move.move.name}: ${move.move.name}`}</p>
+                    <p>{`${move.move.name}`}</p>
                 )
             })}
-
         </Movimentos>
+        </PrincipaisAtaques>
+
         </Detalhes>
         <button onClick={history.goBack}>voltar</button>
     </div>
     );
 };
+//---------------------------------------------------------------------------------------
+
 
 const Detalhes = styled.div`
     display: flex;
+    justify-content: space-evenly;
+    height: 80vh;
+    margin: 20px 10vw;
+
+    >h1 {
+      display: block;
+      align-self: center;
+    }
+
+    >p {
+      display: block;
+      margin-block-start: 1em;
+      margin-inline-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+    }
 `;
 
-const Status = styled.div`
-    border: solid black;
-    height: 250px;
-    width: 220px;
-    margin: 10px;
+const DivImg = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 75%;
+    justify-content: space-between;
 `;
-const Img = styled.div``;
+
+// const Img = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     align-self: center;
+//     height: 75%;
+// `;
 
 const ImgFrontal = styled.img`
-    height: 200px;
+    background-color: rgb(241, 241, 241);
+    border: solid black;
+    height: 25vh;
+    /* height: 180px;
     width: auto;
-    margin: 10px;
+    margin: 40px; */
 `;
 
 const ImgCostas = styled.img`
-    height: 200px;
+    background-color: rgb(241, 241, 241);
+    border: solid black;
+    height: 25vh;
+    /* height: 180px;
     width: auto;
-    margin: 10px;
+    margin: 40px; */
+`;
+
+const Status = styled.div`
+    background-color: rgb(241, 241, 241);
+    border: solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 75%;
+    align-self: center;
+    width: 300px;
+    padding-left: 20px;
+`;
+
+const PrincipaisAtaques = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 20px;
+    height: 75%;
+    align-self: center;
+    /* height: 40px;
+    width: 440px;
+    margin: 10px; */
 `;
 
 const Tipo = styled.div`
+    background-color: rgb(241, 241, 241);
     border: solid black;
-    height: 250px;
-    width: 220px;
-    margin: 10px;
+    display: flex;
+    height: 10%;
+    justify-content: space-around;
 `;
+
 const Movimentos = styled.div`
+    background-color: rgb(241, 241, 241);
     border: solid black;
-    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 20px;
+    height: 75%;
+    /* height: 440px;
     width: 220px;
-    margin: 10px;
+    margin: 10px; */
 `;
