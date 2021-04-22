@@ -3,10 +3,13 @@ import {goToDetalhesPage} from "../routes/coordinator"
 import { useHistory } from "react-router";
 import styled from 'styled-components'
 import { HeaderPokedex } from "../componetes/headerPokedex";
+import GlobalStateContext from "../Context/GlobalContextState";
 
 export const PokedexPage = () => {
     const history = useHistory();
+    const {states, setters, requests} = useContext(GlobalStateContext)
     
+    console.log(states.pokedex);
 
     return(
     <div>

@@ -11,7 +11,7 @@ export default function CardPokemon(props) {
     const {states, setters, requests} = useContext(GlobalStateContext)
     const history = useHistory();
     const [fotoPokemon, setFotoPokemon] = useState([])
-    const { name } = props;
+    const { name , pokemon} = props;
 
     const pegaInformacoesPokemon = async () => {
         try {
@@ -23,27 +23,15 @@ export default function CardPokemon(props) {
     }
 
     const pegarPokedex = (poke) => {
-        const index = states.pokemonsApi.findIndex((i) => i.id === poke.name);
+        const index = states.pokemonsApi.findIndex((i) => i.name === poke.name);
         let novoPokemon = [...states.pokedex];
-        if (index === -1) {
-            novoPokemon.push({...name})
+        if (index !== -1) {
+            novoPokemon.push(poke)
         } 
         setters.setPokedex(novoPokemon);
-        alert(`${name.name} foi adicionado ao sua pokedex!`);
+        alert(`${poke.name} foi adicionado ao sua pokedex!`);
     }
-
-    // const addItemToCart = (newItem) => {
-    //     const index = states.cart.findIndex((i) => i.id === newItem.id);
-    //     let newCart = [...states.cart];
-    //     if (index === -1) {
-    //       newCart.push({ ...newItem, amount: 1 });
-    //     } else {
-    //       newCart[index].amount += 1;
-    //     }
-    //     setters.setCart(newCart);
-    //     alert(${newItem.name} foi adicionado ao seu carrinho!);
-    //   };
-    
+ 
 
     useEffect(() => {
         pegaInformacoesPokemon();
@@ -54,7 +42,7 @@ export default function CardPokemon(props) {
             <h1>{name}</h1>
             <Img src={fotoPokemon} />
             <Buttons>
-                <button onClick={() =>pegarPokedex(name)}>Pegar</button>
+                <button onClick={() =>pegarPokedex(pokemon)}>Pegar</button>
                 <button onClick={() => goToDetalhesPage(history,name)}>Detalhes</button>
             </Buttons>
         </CardPoke>
@@ -81,4 +69,15 @@ const Buttons = styled.div`
 const Img = styled.img`
     height: 200px;
     width: auto;
-`
+` 
+// const addItemToCart = (newItem) => {
+//     const index = states.cart.findIndex((i) => i.id === newItem.id);
+//     let newCart = [...states.cart];
+//     if (index === -1) {
+//       newCart.push({ ...newItem, amount: 1 });
+//     } else {
+//       newCart[index].amount += 1;
+//     }
+//     setters.setCart(newCart);
+//     alert(${newItem.name} foi adicionado ao seu carrinho!);
+//   };

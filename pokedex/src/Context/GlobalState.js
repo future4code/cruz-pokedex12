@@ -17,9 +17,10 @@ const GlobalState = (props) =>{
         }
     }
 
+
     const states = { pokemonsApi, pokedex };
     const setters = { setPokemonsApi, setPokedex };
-    const requests = { listaPokemons };
+    const requests = { listaPokemons};
 
 
     return(

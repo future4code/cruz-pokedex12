@@ -12,14 +12,15 @@ export const HomePage = () => {
         requests.listaPokemons();
     }, [requests])
 
-    const listaPokemonsNaTela = states.pokemonsApi && states.pokemonsApi.length > 0 && states.pokemonsApi.map((pokemons)=>{
+    const listaPokemonsNaTela = states.pokemonsApi && states.pokemonsApi.length > 0 && states.pokemonsApi.map((pokemon)=>{
         return <CardPokemon 
-                    key={pokemons.name}
-                    name={pokemons.name}
+                    key={pokemon.name}
+                    name={pokemon.name}
+                    pokemon={pokemon}
                 />
     })
 
-    
+  
 
     return (
         <Principal>
