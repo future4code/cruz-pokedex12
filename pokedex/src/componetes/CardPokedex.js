@@ -11,13 +11,29 @@ export default function CardPokemon(props) {
     const {states, setters, requests} = useContext(GlobalStateContext)
     const history = useHistory();
     const [fotoPokemon, setFotoPokemon] = useState([])
-    const { name } = props;
+    const { name, pokemon } = props;
 
-    const deletarPokemon = (nome) => {
-
-        
-
+    const pegaInformacoesPokemon = async () => {
+        try {
+            const response = await axios.get(`${UrlBase}/${name}`)
+            setFotoPokemon(response.data.sprites.versions['generation-v']['black-white'].animated.front_default)
+        } catch (erro) {
+            console.log("Erro", erro);
+        }
     }
+
+
+    const deletarPokemon = (removerPokemon) => {
+        const position = states.pokedex.findIndex((pokemon) => {
+          return pokemon.name === removerPokemon.name;
+        });
+        let novoPokemon = [...states.pokedex];
+        if (novoPokemon[position] !== 1) {
+            novoPokemon.splice(position, 1);
+        }
+        setters.setPokedex(novoPokemon);
+        alert(`${removerPokemon.name} foi deletado com sucesso!`);
+      };
 
     useEffect(() => {
         pegaInformacoesPokemon();
@@ -28,7 +44,7 @@ export default function CardPokemon(props) {
             <h1>{name}</h1>
             <Img src={fotoPokemon} />
             <Buttons>
-                <button>deletar</button>
+                <button onClick={() => deletarPokemon(pokemon)}>deletar</button>
                 <button onClick={() => goToDetalhesPage(history,name)}>Detalhes</button>
             </Buttons>
         </CardPoke>
