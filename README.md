@@ -3,14 +3,12 @@
 )
 
 ## Este é um projeto consumindo a api **https://pokeapi.co/** para criar uma pokedex. Ele possui as seguintes telas:
-### 1. **Home:** o usuário deve receber uma lista de pokemons vinda da API. Ele pode armazenar Pokemons em sua Pokedex clicando em cada um.
-### 2. **Pokedex:** o usuário deve pode ver os Pokemons que foram adicionados em sua Pokedex. 
-### 3. **Detalhe do Pokemon:** Deve ser possível ir para uma página de detalhes do Pokemon ao clicar no mesmo, estando tanto na Home quanto na Pokedex.
+### **Home:** , **Pokedex:** e **Detalhe do Pokemon:**
 
 ## Nome dos integrantes: 
-### - Luciana Monteiro Mendonça
-### - Frank de Castro Filho
-### - Gabriel Mina da Silva
+### :construction_worker: Luciana Monteiro Mendonça
+### :construction_worker: Frank de Castro Filho
+### :construction_worker: Gabriel Mina da Silva
 
 ## Link do Surge: www.link.com.br
 

@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styled from 'styled-components'
 import axios from "axios";
 import {HeaderHome} from '../componetes/headerHome'
 import CardPokemon from "../componetes/CardPokemon";
 import {UrlBase} from '../Constants/Url'
+import GlobalContextState from '../Context/GlobalContextState'
 
 export const HomePage = () => {
     
     const [pokemonsApi, setPokemonsApi] = useState([])
+    const {nome} = useContext(GlobalContextState)
 
+    console.log(nome);
     const listaPokemons = async () => {
         try {
             const response = await axios.get(`${UrlBase}`);
