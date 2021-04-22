@@ -33,6 +33,7 @@ export default function CardPokemon(props) {
     }
  
 
+
     useEffect(() => {
         pegaInformacoesPokemon();
     }, [])
