@@ -1,101 +1,53 @@
 import React, { useEffect, useState } from "react"
-import { goToDetalhesPage } from "../routes/coordinator"
-import { useHistory } from "react-router";
 import styled from 'styled-components'
 import axios from "axios";
-
+import {HeaderHome} from '../componetes/headerHome'
+import CardPokemon from "../componetes/CardPokemon";
+import {UrlBase} from '../Constants/Url'
 
 export const HomePage = () => {
-    const history = useHistory();
-    const [pokemonsApi,setPokemonsApi] = useState([])
+    
+    const [pokemonsApi, setPokemonsApi] = useState([])
 
-    const listaPokemons = async() =>{
-        try{
-            const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
+    const listaPokemons = async () => {
+        try {
+            const response = await axios.get(`${UrlBase}`);
             setPokemonsApi(response.data.results);
-        }catch(erro){
-            console.log("Erro",erro);
+        } catch (erro) {
+            console.log("Erro", erro);
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         listaPokemons();
-    },[])
+    }, [])
+
+    const listaPokemonsNaTela = pokemonsApi && pokemonsApi.length > 0 && pokemonsApi.map((pokemons)=>{
+        return <CardPokemon 
+                    key={pokemons.name}
+                    name={pokemons.name}
+                />
+    })
 
     return (
-            <Principal>
+        <Principal>
+            <HeaderHome />
+            <PrincipalCard>
                 <CardsPokemon>
-                    <CardPoke>
-                        <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
-                        <p>pokemon</p>
-                        <Buttons>
-                            <button>Pegar</button>
-                            <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
-                        </Buttons>
-                    </CardPoke>
-                    <CardPoke>
-                        <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
-                        <p>pokemon</p>
-                        <Buttons>
-                            <button>Pegar</button>
-                            <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
-                        </Buttons>
-                    </CardPoke>
-                    <CardPoke>
-                        <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
-                        <p>pokemon</p>
-                        <Buttons>
-                            <button>Pegar</button>
-                            <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
-                        </Buttons>
-                    </CardPoke>
-                    <CardPoke>
-                        <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
-                        <p>pokemon</p>
-                        <Buttons>
-                            <button>Pegar</button>
-                            <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
-                        </Buttons>
-                    </CardPoke>
-                    <CardPoke>
-                        <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
-                        <p>pokemon</p>
-                        <Buttons>
-                            <button>Pegar</button>
-                            <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
-                        </Buttons>
-                    </CardPoke>
-                    <CardPoke>
-                        <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
-                        <p>pokemon</p>
-                        <Buttons>
-                            <button>Pegar</button>
-                            <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
-                        </Buttons>
-                    </CardPoke>
-                    <CardPoke>
-                        <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
-                        <p>pokemon</p>
-                        <Buttons>
-                            <button>Pegar</button>
-                            <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
-                        </Buttons>
-                    </CardPoke>
-                    <CardPoke>
-                        <Img src={"https://img.pokemondb.net/artwork/charmeleon.jpg"} />
-                        <p>pokemon</p>
-                        <Buttons>
-                            <button>Pegar</button>
-                            <button onClick={() => goToDetalhesPage(history)}>Detalhes</button>
-                        </Buttons>
-                    </CardPoke>
+                   {listaPokemonsNaTela}
                 </CardsPokemon>
-            </Principal>
+            </PrincipalCard>
+        </Principal>
     )
 }
-
 const Principal = styled.div`
+    display:flex;
+    flex-direction:column;
     height:100vh;
+`
+
+const PrincipalCard = styled.div`
+    
     display:flex;
     align-items:center;
     justify-content:center;
@@ -109,25 +61,4 @@ const CardsPokemon = styled.div`
     grid-gap:10px;
     width:100%;
     justify-content:center;
-`
-
-const CardPoke = styled.div`
-    background-color:lightgrey;
-    border: solid black;
-    height: 300px;
-    width: 100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-`
-const Buttons = styled.div`
-    display:flex;
-    width:100%;
-    justify-content:space-evenly;
-`
-
-const Img = styled.img`
-    height: 200px;
-    width: auto;
 `

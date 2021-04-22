@@ -1,13 +1,13 @@
 import React from "react"
 import { useHistory } from "react-router";
 import styled from 'styled-components'
-import { goToHomePage } from "../routes/coordinator";
+import { goToHomePage , goToPokedexPage } from "../routes/coordinator";
 
 export const HeaderHome = () => {
     const history = useHistory();
     return(
         <Conteiner>
-            <button onClick={history.goBack}>voltar</button>
+            <button onClick={() => goToPokedexPage(history)}>Pokedex</button>
             <Titulo>Home</Titulo>
             <Botão onClick={() => goToHomePage(history)}>
                 <Img src="https://www.pngix.com/pngfile/big/687-6878828_transparent-pokemon-logo-png-transparent-background-pokeball-transparent.png"/>
