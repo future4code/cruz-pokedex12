@@ -6,6 +6,8 @@ import { HeaderPokedex } from "../componetes/headerPokedex";
 
 export const PokedexPage = () => {
     const history = useHistory();
+    
+
     return(
     <div>
         <HeaderPokedex/>
