@@ -25,7 +25,6 @@ export default function CardPokemon(props) {
 
     const pegarPokedex = (poke) => {
         const index = states.pokemonsApi.findIndex((i) => i.name === poke.name);
-        console.log("index",index);
         if (index !== -1) {
             let novoPokemon = [...states.pokedex,poke];
             setters.setPokedex(novoPokemon);

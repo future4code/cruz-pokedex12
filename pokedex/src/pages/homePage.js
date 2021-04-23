@@ -64,7 +64,7 @@ const Principal = styled.div`
     flex-direction:column;
     height:100vh;
     @media(max-width: 800px) {
-        min-width:470px;
+        min-width:450px;
   }
 `
 
@@ -86,7 +86,7 @@ const CardsPokemon = styled.div`
     
     @media(max-width: 800px) {
         grid-template-columns:repeat(2,1fr);
-        min-width:400px;
+        min-width:300px;
     }
 
 `
