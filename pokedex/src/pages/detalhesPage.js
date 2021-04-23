@@ -6,60 +6,60 @@ import { UrlBase } from '../Constants/Url'
 import styled from "styled-components";
 import { HeaderDetalhes } from "../componetes/headerDetalhes";
 
-
 export const DetalhesPage = () => {
-  const history = useHistory()
-  const {nomePokemon} = useParams()
-  const [pokemon, setPokemon] = useState({})
+    const history = useHistory()
+    const {nomePokemon} = useParams()
+    const [pokemon, setPokemon] = useState({})
 
-  useEffect (() => {
+    useEffect (() => {
     axios
     .get(`${UrlBase}/${nomePokemon}`)
     .then((response) => {
-      setPokemon(response.data)
+        setPokemon(response.data)
     })
 
-  }, [])
+    }, [])
 
-  return (
-    <div>
-      {pokemon.name ?  <div>
-          <HeaderDetalhes/>
-          <Detalhes>
-              <DivImg> 
-                  <ImgFrontal src={pokemon.sprites.front_default} />
-                  <ImgCostas src={pokemon.sprites.back_default} />
-              </DivImg>
-          <Status>
+    return (
+        <div>
+            {pokemon.name ?  <div>
+            <HeaderDetalhes/>
+            <Detalhes>
+                <DivImg> 
+
+                    <ImgFrontal src={pokemon.sprites.versions['generation-v']['black-white'].animated.front_default} />
+                    <ImgCostas src={pokemon.sprites.versions['generation-v']['black-white'].animated.back_default} />
+                </DivImg>
+            <Status>
             <h1>Poderes</h1>
-              {pokemon.stats.map((stat) => {
-                  return(
-                      <p>{`${stat.stat.name}: ${stat.base_stat}`}</p>
-                  )
-              })}
-          </Status>
-          <PrincipaisAtaques>
-          <Tipo>
-              {pokemon.types.map((type) => {
-                  return(
-                      <p>{`${type.type.name}`}</p>
-                  )
-              })}
-          </Tipo>
-          <Movimentos>
+                {pokemon.stats.map((stat) => {
+                    return(
+                        <p>{`${stat.stat.name}: ${stat.base_stat}`}</p>
+                    )
+                })}
+            </Status>
+            <PrincipaisAtaques>
+            <Tipo>
+                {pokemon.types.map((type) => {
+                    return(
+                        <p>{`${type.type.name}`}</p>
+                    )
+                })}
+            </Tipo>
+            <Movimentos>
             <h1>Principais ataques</h1>
-              {pokemon.moves.map((move) => {
-                  return(
-                      <p>{`${move.move.name}`}</p>
-                  )
-              })}
-          </Movimentos>
-          </PrincipaisAtaques>
-          </Detalhes>
-          <button onClick={history.goBack}>voltar</button>
-      </div> : <div>Carregando...</div>}
+                {pokemon.moves.map((move, index) => {
+                    return(
+                        index < 5 && <p>{`${move.move.name}`}</p>
+                    )
+                })}
+            </Movimentos>
+            </PrincipaisAtaques>
+            </Detalhes>
+            <button onClick={history.goBack}>voltar</button>
+        </div> : <div>Carregando...</div>}
     </div>
-  )
+    )
 }
 
 const Detalhes = styled.div`
@@ -69,16 +69,16 @@ const Detalhes = styled.div`
     margin: 20px 10vw;
 
     >h1 {
-      display: block;
-      align-self: center;
+        display: block;
+        align-self: center;
     }
 
     >p {
-      display: block;
-      margin-block-start: 1em;
-      margin-inline-end: 1em;
-      margin-inline-start: 0px;
-      margin-inline-end: 0px;
+        display: block;
+        margin-block-start: 1em;
+        margin-inline-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
     }
 `;
 
@@ -143,5 +143,5 @@ const Movimentos = styled.div`
     flex-direction: column;
     justify-content: space-around;
     padding-left: 20px;
-    height: 75%;
+    min-height: 75%;
 `;
