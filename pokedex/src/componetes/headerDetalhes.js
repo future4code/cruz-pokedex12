@@ -7,7 +7,7 @@ export const HeaderDetalhes = () => {
     const history = useHistory();
     return(
         <Conteiner>
-            <button onClick={history.goBack}>voltar</button>
+            <Button onClick={history.goBack}>voltar</Button>
             <Titulo>Detalhes</Titulo>
             <Botão onClick={() => goToHomePage(history)}>
                 <Img src="https://www.pngix.com/pngfile/big/687-6878828_transparent-pokemon-logo-png-transparent-background-pokeball-transparent.png"/>
@@ -20,6 +20,25 @@ export const HeaderDetalhes = () => {
 const Botão = styled.button`
     border: none;
     background-color: red;
+    
+`
+
+const Button = styled.button`
+    padding: 5px 5px 5px 5px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #393332;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px #999;
+    :focus {
+    color: white;
+    background-color: black;
+    }
+
 `
 
 const Img = styled.img`

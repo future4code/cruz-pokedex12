@@ -54,6 +54,12 @@ export const HomePage = () => {
                 <CardsPokemon>
                    {listaPokemonsNaTela}
                 </CardsPokemon>
+                <ButtoesPage>
+                    <BotoesPagina onClick={funcoes.botao1}>1</BotoesPagina>
+                    <BotoesPagina onClick={funcoes.botao2}>2</BotoesPagina>
+                    <BotoesPagina onClick={funcoes.botao3}>3</BotoesPagina>
+                    <BotoesPagina onClick={funcoes.botao4}>4</BotoesPagina>
+                </ButtoesPage>
             </PrincipalCard>
         </Principal>
     )
