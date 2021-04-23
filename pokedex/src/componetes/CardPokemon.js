@@ -30,6 +30,7 @@ export default function CardPokemon(props) {
         }
         setters.setPokedex(novoPokemon);
         alert(`${poke.name} foi adicionado ao sua pokedex!`);
+        states.pokemonsApi.splice(index,1)
     }
 
 
@@ -45,6 +46,7 @@ export default function CardPokemon(props) {
     //     alert(${newItem.name} foi adicionado ao seu carrinho!);
     //   };
     
+
 
     useEffect(() => {
         pegaInformacoesPokemon();
