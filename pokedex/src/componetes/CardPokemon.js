@@ -24,28 +24,15 @@ export default function CardPokemon(props) {
 
     const pegarPokedex = (poke) => {
         const index = states.pokemonsApi.findIndex((i) => i.name === poke.name);
-        let novoPokemon = [...states.pokedex];
         if (index !== -1) {
-            novoPokemon.push(poke)
+            let novoPokemon = [...states.pokedex,poke];
+            setters.setPokedex(novoPokemon);
+            alert(`${poke.name} foi adicionado ao sua pokedex!`);
+        }else{
+            alert(`${poke.name} ja adicionado!`);
         }
-        setters.setPokedex(novoPokemon);
-        alert(`${poke.name} foi adicionado ao sua pokedex!`);
-        states.pokemonsApi.splice(index,1)
     }
 
-
-    // const addItemToCart = (newItem) => {
-    //     const index = states.cart.findIndex((i) => i.id === newItem.id);
-    //     let newCart = [...states.cart];
-    //     if (index === -1) {
-    //       newCart.push({ ...newItem, amount: 1 });
-    //     } else {
-    //       newCart[index].amount += 1;
-    //     }
-    //     setters.setCart(newCart);
-    //     alert(${newItem.name} foi adicionado ao seu carrinho!);
-    //   };
-    
 
 
     useEffect(() => {
