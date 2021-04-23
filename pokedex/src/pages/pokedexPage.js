@@ -10,7 +10,6 @@ export const PokedexPage = () => {
     const history = useHistory();
     const {states, setters, requests} = useContext(GlobalStateContext)
     
-    console.log(states.pokedex);
     const listaPokemonsNaTela = states.pokedex && states.pokedex.length > 0 && states.pokedex.map((pokemon)=>{
         return <CardPokedex 
                     key={pokemon.name}
