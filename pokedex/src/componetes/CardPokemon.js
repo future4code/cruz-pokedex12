@@ -8,6 +8,7 @@ import { UrlBase } from '../Constants/Url'
 
 
 export default function CardPokemon(props) {
+
     const {states, setters, requests} = useContext(GlobalStateContext)
     const history = useHistory();
     const [fotoPokemon, setFotoPokemon] = useState([])
@@ -24,6 +25,7 @@ export default function CardPokemon(props) {
 
     const pegarPokedex = (poke) => {
         const index = states.pokemonsApi.findIndex((i) => i.name === poke.name);
+        console.log("index",index);
         if (index !== -1) {
             let novoPokemon = [...states.pokedex,poke];
             setters.setPokedex(novoPokemon);
@@ -32,8 +34,6 @@ export default function CardPokemon(props) {
             alert(`${poke.name} ja adicionado!`);
         }
     }
-
-
 
     useEffect(() => {
         pegaInformacoesPokemon();
@@ -111,3 +111,4 @@ const Img = styled.img`
     margin: 10px;
     width: auto;
 `
+
