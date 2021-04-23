@@ -69,6 +69,6 @@ const Buttons = styled.div`
 `
 
 const Img = styled.img`
-    height: 200px;
+    height: 100px;
     width: auto;
 `

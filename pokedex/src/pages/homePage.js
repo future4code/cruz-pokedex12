@@ -62,6 +62,9 @@ const Principal = styled.div`
     display:flex;
     flex-direction:column;
     height:100vh;
+    @media(max-width: 800px) {
+        min-width:470px;
+  }
 `
 
 const PrincipalCard = styled.div`
@@ -79,6 +82,12 @@ const CardsPokemon = styled.div`
     grid-gap:10px;
     width:100%;
     justify-content:center;
+    
+    @media(max-width: 800px) {
+        grid-template-columns:repeat(2,1fr);
+        min-width:400px;
+    }
+
 `
 const BotoesPagina = styled.button`
     height: 5vh;
