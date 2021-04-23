@@ -11,28 +11,28 @@ const GlobalState = (props) =>{
 
     const listaPokemons = async () => {
         try {
-            const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${pagina}&limit=20`);
-            setPokemonsApi(response.data.results);
-           
+            const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${pagina}&limit=30`);
+            setPokemonsApi(response.data.results);     
         } catch (erro) {
             console.log("Erro", erro);
         }
     }
-    
+
+   
     const botao1 = () => {
         setPagina(0) 
     }
 
     const botao2 = () => {
-        setPagina(20)
+        setPagina(30)
     }
 
     const botao3 = () => {
-        setPagina(40)
-    }
-    
-    const botao4 = () => {
         setPagina(60)
+    }
+
+    const botao4 = () => {
+        setPagina(90)
     }
     
 
@@ -50,32 +50,3 @@ const GlobalState = (props) =>{
 
 
 export default GlobalState;
-
-// const [cart, setCart] = useState([]);
-//   const [products, setProducts] = useState({});
-
-//   useEffect(() => {
-//     getProducts();
-//   }, []);
-
-//   const getProducts = () => {
-//     axios
-//       .get(`${BASE_URL}/products`)
-//       .then((res) => {
-//         setProducts(res.data);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-
-//   const states = { cart, products };
-//   const setters = { setCart, setProducts };
-//   const requests = { getProducts };
-
-//   return (
-//     <GlobalStateContext.Provider value={{ states, setters, requests }}>
-//       {props.children}
-//     </GlobalStateContext.Provider>
-//   );
-// };

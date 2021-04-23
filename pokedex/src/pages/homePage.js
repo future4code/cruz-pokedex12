@@ -7,12 +7,27 @@ import GlobalStateContext from "../Context/GlobalContextState";
 export const HomePage = () => {
 
     const {states, setters, requests,funcoes} = useContext(GlobalStateContext)
+    
+    /*
+        Um filtro do array que vem da api de pokemons , Esse array filtrado é oque aparece na tela.
+        A funcao some , verifica se o Pokemon esta na pokedex.
+        Se estiver , ele retorna um FALSE para o filtro. Um retorno false para o filtro, ele tira o elemento do array
+        Se o retorno for True , ele deixa o elemento no array.
+        A ideia é , se o pokemon nao estiver na pokedex , ele retorna um FALSE no some e um TRUE para o filter
+        Se o pokemon estiver na pokedex , ele retorna um True para o some e um FALSE para o filter.
+    */
+    let arrayPokemons = states.pokemonsApi.filter((pokemon) => {
+        const estaNaPokedex = states.pokedex.some((pokemonPokedex) => {
+          return pokemonPokedex.name === pokemon.name
+        })
+        if(estaNaPokedex) {
+            return false        
+        } else {
+            return true
+        }
+      })
 
-    useEffect(() => {
-        requests.listaPokemons();
-    }, [requests])
-
-    const listaPokemonsNaTela = states.pokemonsApi && states.pokemonsApi.length > 0 && states.pokemonsApi.map((pokemon)=>{
+    const listaPokemonsNaTela = arrayPokemons && arrayPokemons.length > 0 && arrayPokemons.map((pokemon)=>{
         return <CardPokemon 
                     key={pokemon.name}
                     name={pokemon.name}
@@ -20,8 +35,12 @@ export const HomePage = () => {
                 />
     })
 
-  
+    useEffect(()=>{
+        requests.listaPokemons();
+    },[requests])
 
+    
+    
     return (
         <Principal>
             <HeaderHome />
