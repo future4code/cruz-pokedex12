@@ -45,7 +45,6 @@ const Principal = styled.div`
 `
 
 const PrincipalCard = styled.div`
-    
     display:flex;
     align-items:center;
     justify-content:center;

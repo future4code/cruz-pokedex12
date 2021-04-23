@@ -16,6 +16,7 @@ export const HomePage = () => {
         A ideia é , se o pokemon nao estiver na pokedex , ele retorna um FALSE no some e um TRUE para o filter
         Se o pokemon estiver na pokedex , ele retorna um True para o some e um FALSE para o filter.
     */
+   
     let arrayPokemons = states.pokemonsApi.filter((pokemon) => {
         const estaNaPokedex = states.pokedex.some((pokemonPokedex) => {
           return pokemonPokedex.name === pokemon.name
@@ -54,12 +55,6 @@ export const HomePage = () => {
                 <CardsPokemon>
                    {listaPokemonsNaTela}
                 </CardsPokemon>
-                <ButtoesPage>
-                    <BotoesPagina onClick={funcoes.botao1}>1</BotoesPagina>
-                    <BotoesPagina onClick={funcoes.botao2}>2</BotoesPagina>
-                    <BotoesPagina onClick={funcoes.botao3}>3</BotoesPagina>
-                    <BotoesPagina onClick={funcoes.botao4}>4</BotoesPagina>
-                </ButtoesPage>
             </PrincipalCard>
         </Principal>
     )
