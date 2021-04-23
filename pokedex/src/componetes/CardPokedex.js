@@ -41,11 +41,11 @@ export default function CardPokemon(props) {
 
     return (
         <CardPoke>
-            <h1>{name}</h1>
+            <Nome>{name}</Nome>
             <Img src={fotoPokemon} />
             <Buttons>
-                <button onClick={() => deletarPokemon(pokemon)}>deletar</button>
-                <button onClick={() => goToDetalhesPage(history,name)}>Detalhes</button>
+                <Pegar onClick={() => deletarPokemon(pokemon)}>deletar</Pegar>
+                <Detalhes onClick={() => goToDetalhesPage(history,name)}>Detalhes</Detalhes>
             </Buttons>
         </CardPoke>
     )
@@ -54,12 +54,46 @@ export default function CardPokemon(props) {
 const CardPoke = styled.div`
     background-color:lightgrey;
     border: solid black;
-    height: 350px;
+    height: 275px;
     width: 100%;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    border-radius: 5px;
+`
+
+const Pegar = styled.button`
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #393332;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px #999;
+  :focus {
+    color: white;
+    background-color: black;
+}
+`
+const Detalhes = styled.button`
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #393332;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px #999;
+  :focus {
+    color: white;
+    background-color: black;
+}
 `
 
 const Buttons = styled.div`
@@ -68,7 +102,12 @@ const Buttons = styled.div`
     justify-content:space-evenly;
 `
 
+const Nome = styled.h2`
+font-family: 'Zen Dots', cursive;
+`
+
 const Img = styled.img`
-    height: 200px;
+    height: 100px;
+    margin: 10px;
     width: auto;
 `
