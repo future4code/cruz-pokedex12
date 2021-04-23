@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect } from "react"
 import styled from 'styled-components'
 import {HeaderHome} from '../componetes/headerHome'
 import CardPokemon from "../componetes/CardPokemon";
@@ -6,7 +6,7 @@ import GlobalStateContext from "../Context/GlobalContextState";
 
 export const HomePage = () => {
 
-    const {states, setters, requests} = useContext(GlobalStateContext)
+    const {states, setters, requests,funcoes} = useContext(GlobalStateContext)
 
     useEffect(() => {
         requests.listaPokemons();
@@ -26,6 +26,12 @@ export const HomePage = () => {
         <Principal>
             <HeaderHome />
             <PrincipalCard>
+                <ButtoesPage>
+                    <BotoesPagina onClick={funcoes.botao1}>1</BotoesPagina>
+                    <BotoesPagina onClick={funcoes.botao2}>2</BotoesPagina>
+                    <BotoesPagina onClick={funcoes.botao3}>3</BotoesPagina>
+                    <BotoesPagina onClick={funcoes.botao4}>4</BotoesPagina>
+                </ButtoesPage>
                 <CardsPokemon>
                    {listaPokemonsNaTela}
                 </CardsPokemon>
@@ -55,3 +61,21 @@ const CardsPokemon = styled.div`
     width:100%;
     justify-content:center;
 `
+const BotoesPagina = styled.button`
+    height: 5vh;
+    width: 5vh;
+    margin: 1vh;
+    border-radius: 2vh;
+
+:focus {
+    color: white;
+    background-color: black;
+}
+` 
+const ButtoesPage = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+` 

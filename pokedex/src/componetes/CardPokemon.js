@@ -30,6 +30,7 @@ export default function CardPokemon(props) {
         }
         setters.setPokedex(novoPokemon);
         alert(`${poke.name} foi adicionado ao sua pokedex!`);
+        states.pokemonsApi.splice(index,1)
     }
 
 
