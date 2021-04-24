@@ -10,12 +10,10 @@
 ### :construction_worker: Frank de Castro Filho
 ### :construction_worker: Gabriel Mina da Silva
 
-## Link do Surge: www.link.com.br
+## Link do Surge: http://humorous-credit.surge.sh/
 
 ## O que funciona:
-### - Item 1
-### - Item 2
+### - Todas as funções basicas solicitadas
 
 ## O que não funciona: 
-### - Item 3
-### - Item 4
+### - A batalha pokemon
