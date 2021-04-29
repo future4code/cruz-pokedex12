@@ -1,16 +1,19 @@
 # POKEDEX
+![alt text](https://www.einerd.com.br/wp-content/uploads/2020/01/ash-pokemon-e1580132488300.jpeg
+)
 
-Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+## Este é um projeto consumindo a api **https://pokeapi.co/** para criar uma pokedex. Ele possui as seguintes telas:
+### **Home:** , **Pokedex:** e **Detalhe do Pokemon:**
 
-Link do Surge: www.link.com.br
+## Nome dos integrantes: 
+### :construction_worker: Luciana Monteiro Mendonça
+### :construction_worker: Frank de Castro Filho
+### :construction_worker: Gabriel Mina da Silva
 
-O que funciona:
-- Item 1
-- Item 2
+## Link do Surge: http://humorous-credit.surge.sh/
 
-O que não funciona: 
-- Item 3
-- Item 4
+## O que funciona:
+### - Todas as funções basicas solicitadas
+
+## O que não funciona: 
+### - A batalha pokemon
